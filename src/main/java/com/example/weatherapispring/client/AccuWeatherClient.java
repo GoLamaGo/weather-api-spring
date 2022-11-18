@@ -1,9 +1,8 @@
 package com.example.weatherapispring.client;
 
 
-import com.example.weatherapispring.model.City;
+import com.example.weatherapispring.model.api.aqqu.LocationCityRs;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -19,7 +18,7 @@ public class AccuWeatherClient {
 
     private final RestTemplate restTemplate;
 
-    public List<City> getTopCities(String apikey, int cityCount) {
+    public List<LocationCityRs> getTopCities(String apikey, int cityCount) {
         String baseUrl = "http://dataservice.accuweather.com/locations/v1/topcities/"
                 + cityCount
                 + "?apikey="
@@ -34,7 +33,7 @@ public class AccuWeatherClient {
 
         System.out.println("Sending request: " + baseUrl);
 
-        ResponseEntity<City[]> result = restTemplate.getForEntity(uri, City[].class);
+        ResponseEntity<LocationCityRs[]> result = restTemplate.getForEntity(uri, LocationCityRs[].class);
         System.out.println("respinse: " + Arrays.toString(result.getBody()));
 
         return Arrays.asList(result.getBody());
