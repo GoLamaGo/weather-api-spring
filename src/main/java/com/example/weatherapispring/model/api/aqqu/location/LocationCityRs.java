@@ -1,4 +1,4 @@
-package com.example.weatherapispring.model.api.aqqu;
+package com.example.weatherapispring.model.api.aqqu.location;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

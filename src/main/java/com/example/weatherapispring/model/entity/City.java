@@ -1,11 +1,9 @@
 package com.example.weatherapispring.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Builder
@@ -13,17 +11,22 @@ import java.util.Objects;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Table(name = "city")
 @Entity
+@JsonIgnoreProperties("currentCondition")
 public class City {
-
     @Id
     @Column(name = "id")
     private Long id;
-
     @Column(name = "english_name", nullable = false, updatable = false)
     private String englishName;
+
+    @Column(name = "description")
+    private String description;
+
+    @OneToOne(mappedBy = "city")
+    private CurrentCondition currentCondition;
+
 
     @Override
     public boolean equals(Object o) {
@@ -36,5 +39,13 @@ public class City {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", englishName='" + englishName + '\'' +
+                '}';
     }
 }

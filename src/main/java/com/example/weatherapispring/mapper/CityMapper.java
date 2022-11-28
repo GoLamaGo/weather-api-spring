@@ -1,6 +1,6 @@
 package com.example.weatherapispring.mapper;
 
-import com.example.weatherapispring.model.api.aqqu.LocationCityRs;
+import com.example.weatherapispring.model.api.aqqu.location.LocationCityRs;
 import com.example.weatherapispring.model.entity.City;
 import org.springframework.stereotype.Component;
 
