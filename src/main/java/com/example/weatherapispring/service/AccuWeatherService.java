@@ -1,7 +1,6 @@
 package com.example.weatherapispring.service;
 
 import com.example.weatherapispring.client.AccuWeatherClient;
-import com.example.weatherapispring.config.RestTemplateConfig;
 import com.example.weatherapispring.mapper.CityMapper;
 import com.example.weatherapispring.mapper.CurrentConditionMapper;
 import com.example.weatherapispring.model.api.aqqu.location.LocationCityRs;
@@ -10,7 +9,6 @@ import com.example.weatherapispring.model.entity.CurrentCondition;
 import com.example.weatherapispring.repository.CityRepository;
 import com.example.weatherapispring.repository.CurrentConditionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
